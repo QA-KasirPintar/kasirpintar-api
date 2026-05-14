@@ -1,0 +1,268 @@
+==== 2025-12-13 09:22:07 ====
+HEADERS:
+Postman-Token: [76ae04da-7c08-4281-a9d7-da4fe1b33ac4]
+Content-Length: [187]
+Content-Type: [application/json]
+Authorization: [Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbmFnZXJAa2FzaXJwaW50YXIuY29tIiwiZXhwIjoxNzY4MTg0NDg2LCJuYW1lIjoiT3duZXIiLCJvdXRsZXRfaWQiOjAsIm91dGxldF9uYW1lIjoiIiwicm9sZSI6Im93bmVyIiwic3ViIjoyfQ.iKkO69dRu7Kz2jyZiidRyrG1PNNcg3THx7EkWE7bfSw]
+User-Agent: [PostmanRuntime/7.49.1]
+Accept: [*/*]
+Accept-Encoding: [gzip, deflate, br]
+Connection: [keep-alive]
+BODY:
+{
+  "order_id": "NV/1765592269319588100/1",
+  "transaction_time": "2025-12-12 12:34:56",
+  "transaction_status": "settlement",
+  "fraud_status": "accept",
+  "status_code": "200"
+}
+
+
+==== 2025-12-13 09:22:37 ====
+HEADERS:
+Content-Type: [application/json]
+User-Agent: [PostmanRuntime/7.49.1]
+Accept-Encoding: [gzip, deflate, br]
+Content-Length: [188]
+Authorization: [Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbmFnZXJAa2FzaXJwaW50YXIuY29tIiwiZXhwIjoxNzY4MTg0NDg2LCJuYW1lIjoiT3duZXIiLCJvdXRsZXRfaWQiOjAsIm91dGxldF9uYW1lIjoiIiwicm9sZSI6Im93bmVyIiwic3ViIjoyfQ.iKkO69dRu7Kz2jyZiidRyrG1PNNcg3THx7EkWE7bfSw]
+Accept: [*/*]
+Postman-Token: [5d2bbd9d-972f-4a56-ab5e-21bb57702fea]
+Connection: [keep-alive]
+BODY:
+{
+  "order_id": "INV/1765592269319588100/1",
+  "transaction_time": "2025-13-12 12:34:56",
+  "transaction_status": "settlement",
+  "fraud_status": "accept",
+  "status_code": "200"
+}
+
+
+==== 2025-12-13 09:26:24 ====
+HEADERS:
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [586]
+Content-Type: [application/json]
+X-Forwarded-For: [147.139.213.108]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+BODY:
+{"transaction_type":"off-us","transaction_time":"2025-12-13 09:26:23","transaction_status":"pending","transaction_id":"4f9ac8ce-e810-4a54-86b2-f37411c68932","status_message":"midtrans payment notification","status_code":"201","signature_key":"ec6285364b66e0458f95b36da074bd8719b8e87bc1d6b0dd800d66508a45f9d88c89652587d30d7a3919300e9ef53cea323b1434334fa04abd3fa1f2c3a412f7","payment_type":"qris","order_id":"INV/1765592783590550400/1","merchant_id":"G851976359","gross_amount":"12000.00","fraud_status":"accept","expiry_time":"2025-12-13 09:41:23","customer_details":{},"currency":"IDR"}
+
+==== 2025-12-13 09:26:54 ====
+HEADERS:
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [781]
+Content-Type: [application/json]
+X-Forwarded-For: [147.139.209.91]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+BODY:
+{"transaction_type":"on-us","transaction_time":"2025-12-13 09:17:49","transaction_status":"settlement","transaction_id":"ea0529a6-5dae-4c9f-962c-96b06f6137d1","status_message":"midtrans payment notification","status_code":"200","signature_key":"1fac5c6c89c861c409adbe348fa90598e0e53e3c0d43cc2a6eba542fa70da97964143b0182aea43dff8ac138f24938497b8b4dbbf2df9a6b9a82f3a4ca20a33b","settlement_time":"2025-12-13 09:19:49","pop_id":"8ec3a66f-f3cb-4ad0-925a-4961266ae9a6","payment_type":"qris","order_id":"INV/1765592269319588100/1","merchant_id":"G851976359","merchant_cross_reference_id":"591db568-bc35-4d53-a130-32ad39907805","issuer":"gopay","gross_amount":"25001.00","fraud_status":"accept","expiry_time":"2025-12-13 09:32:49","customer_details":{},"currency":"IDR","acquirer":"gopay"}
+
+==== 2025-12-13 09:27:31 ====
+HEADERS:
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [585]
+Content-Type: [application/json]
+X-Forwarded-For: [147.139.209.91]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+BODY:
+{"transaction_type":"off-us","transaction_time":"2025-12-13 09:27:29","transaction_status":"pending","transaction_id":"f0e6d868-5566-458d-afc6-d2d910e5ab23","status_message":"midtrans payment notification","status_code":"201","signature_key":"b6526635d5df0a2129d9c5f60677b46459b10fbba497897d27b0817c01be2ae3686a0073960d91086e238713952aa0eddd310aff07d3d92078a4e5bcd9facb6d","payment_type":"qris","order_id":"INV/1765592849839746800/1","merchant_id":"G851976359","gross_amount":"6004.00","fraud_status":"accept","expiry_time":"2025-12-13 09:42:29","customer_details":{},"currency":"IDR"}
+
+==== 2025-12-13 09:27:53 ====
+HEADERS:
+User-Agent: [Veritrans]
+Content-Length: [780]
+Content-Type: [application/json]
+X-Forwarded-For: [8.215.21.228]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+BODY:
+{"transaction_type":"on-us","transaction_time":"2025-12-13 09:27:29","transaction_status":"settlement","transaction_id":"f0e6d868-5566-458d-afc6-d2d910e5ab23","status_message":"midtrans payment notification","status_code":"200","signature_key":"e4217fc9c77ba79d93bed07fd3b17d693cb8fb931a8b65b30961466ef0a0e8c5e3b90522e5848270dcdb36e2409ca66a19f103ea6e1c9e3b1e277e46445988dd","settlement_time":"2025-12-13 09:27:52","pop_id":"8ec3a66f-f3cb-4ad0-925a-4961266ae9a6","payment_type":"qris","order_id":"INV/1765592849839746800/1","merchant_id":"G851976359","merchant_cross_reference_id":"591db568-bc35-4d53-a130-32ad39907805","issuer":"gopay","gross_amount":"6004.00","fraud_status":"accept","expiry_time":"2025-12-13 09:42:29","customer_details":{},"currency":"IDR","acquirer":"gopay"}
+
+==== 2025-12-13 09:42:24 ====
+HEADERS:
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [585]
+Content-Type: [application/json]
+X-Forwarded-For: [8.215.23.167]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+BODY:
+{"transaction_type":"off-us","transaction_time":"2025-12-13 09:26:23","transaction_status":"expire","transaction_id":"4f9ac8ce-e810-4a54-86b2-f37411c68932","status_message":"midtrans payment notification","status_code":"202","signature_key":"cfa782ace5b1282850cd1d6efda920f2f02c0b6c47efa2f5c0455db2a4aee98a5535a46f4cc5fb09c6caa1691e8909b183884770e37ef4c6921919de0a0c04c0","payment_type":"qris","order_id":"INV/1765592783590550400/1","merchant_id":"G851976359","gross_amount":"12000.00","fraud_status":"accept","expiry_time":"2025-12-13 09:41:23","customer_details":{},"currency":"IDR"}
+
+==== 2025-12-13 19:41:26 ====
+HEADERS:
+User-Agent: [Veritrans]
+Content-Length: [586]
+Content-Type: [application/json]
+X-Forwarded-For: [8.215.23.167]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+BODY:
+{"transaction_type":"off-us","transaction_time":"2025-12-13 19:41:26","transaction_status":"pending","transaction_id":"b5c0aece-12da-4c00-8ad5-3b0852a74a94","status_message":"midtrans payment notification","status_code":"201","signature_key":"9ba1fb1a727ac52100aef5e2127119f1f6a6141b8907f516c23e6886c6d2659e666fcb6905027c9a41880a54f19510d5bc649fd2e8dcb72c9a6f8ebc10da8a27","payment_type":"qris","order_id":"INV/1765629685577123800/1","merchant_id":"G851976359","gross_amount":"15400.00","fraud_status":"accept","expiry_time":"2025-12-13 19:56:26","customer_details":{},"currency":"IDR"}
+
+==== 2025-12-13 19:41:57 ====
+HEADERS:
+X-Forwarded-For: [147.139.173.83]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [781]
+Content-Type: [application/json]
+BODY:
+{"transaction_type":"on-us","transaction_time":"2025-12-13 19:41:26","transaction_status":"settlement","transaction_id":"b5c0aece-12da-4c00-8ad5-3b0852a74a94","status_message":"midtrans payment notification","status_code":"200","signature_key":"3e5739d09212478121ef5772989bacfa0134781e15bf212355859abf867d014151bf4b55b091d853311d26ba43b35632fcbac9fe6b32fa2ba791f68cdd981baf","settlement_time":"2025-12-13 19:41:56","pop_id":"8ec3a66f-f3cb-4ad0-925a-4961266ae9a6","payment_type":"qris","order_id":"INV/1765629685577123800/1","merchant_id":"G851976359","merchant_cross_reference_id":"591db568-bc35-4d53-a130-32ad39907805","issuer":"gopay","gross_amount":"15400.00","fraud_status":"accept","expiry_time":"2025-12-13 19:56:26","customer_details":{},"currency":"IDR","acquirer":"gopay"}
+
+==== 2025-12-13 19:44:35 ====
+HEADERS:
+X-Forwarded-For: [147.139.213.108]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [582]
+Content-Type: [application/json]
+BODY:
+{"transaction_type":"off-us","transaction_time":"2025-12-13 19:44:34","transaction_status":"pending","transaction_id":"b8fc5be0-5cf8-4f7e-ac2d-9c597128ebab","status_message":"midtrans payment notification","status_code":"201","signature_key":"ead80edc5a982608463e233dfb673e13737a3901f7b3950ad437a8a6e011bdcf729addca085d2ff442da69a67d6806f2f35152305a418fb213749482c46c48a6","payment_type":"qris","order_id":"INV/1765629874492688100/1","merchant_id":"G851976359","gross_amount":"3.00","fraud_status":"accept","expiry_time":"2025-12-13 19:59:34","customer_details":{},"currency":"IDR"}
+
+==== 2025-12-13 19:45:03 ====
+HEADERS:
+Content-Length: [777]
+Content-Type: [application/json]
+X-Forwarded-For: [8.215.23.167]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+BODY:
+{"transaction_type":"on-us","transaction_time":"2025-12-13 19:44:34","transaction_status":"settlement","transaction_id":"b8fc5be0-5cf8-4f7e-ac2d-9c597128ebab","status_message":"midtrans payment notification","status_code":"200","signature_key":"77c6b9319f90a63f2a3e1e4fb4a8222f2c9efc2b4d5766c098f511d31b82713f198ed10d0094a3550bb526e55cbcaec5add1b0229d4b7f51b3e823a4ed503bcc","settlement_time":"2025-12-13 19:45:02","pop_id":"8ec3a66f-f3cb-4ad0-925a-4961266ae9a6","payment_type":"qris","order_id":"INV/1765629874492688100/1","merchant_id":"G851976359","merchant_cross_reference_id":"591db568-bc35-4d53-a130-32ad39907805","issuer":"gopay","gross_amount":"3.00","fraud_status":"accept","expiry_time":"2025-12-13 19:59:34","customer_details":{},"currency":"IDR","acquirer":"gopay"}
+
+==== 2025-12-13 19:48:15 ====
+HEADERS:
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [586]
+Content-Type: [application/json]
+X-Forwarded-For: [147.139.173.83]
+BODY:
+{"transaction_type":"off-us","transaction_time":"2025-12-13 19:48:15","transaction_status":"pending","transaction_id":"9a708968-bd64-4aba-80b8-e20a0ae87d7a","status_message":"midtrans payment notification","status_code":"201","signature_key":"b0394fafcd6a53ac0fe0d140fa65e5917133c81f9ef74bec61ab8f83cc7f3c036e6a406766d36dd29913790215ca92496b329f4674967074513a38fa9b376a3f","payment_type":"qris","order_id":"INV/1765630095398955500/1","merchant_id":"G851976359","gross_amount":"13200.00","fraud_status":"accept","expiry_time":"2025-12-13 20:03:15","customer_details":{},"currency":"IDR"}
+
+==== 2025-12-13 19:48:46 ====
+HEADERS:
+User-Agent: [Veritrans]
+Content-Length: [781]
+Content-Type: [application/json]
+X-Forwarded-For: [147.139.173.83]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+BODY:
+{"transaction_type":"on-us","transaction_time":"2025-12-13 19:48:15","transaction_status":"settlement","transaction_id":"9a708968-bd64-4aba-80b8-e20a0ae87d7a","status_message":"midtrans payment notification","status_code":"200","signature_key":"e44c2d79f028577ee8cec745cc7e3264a9d7437e1e74c090e1efcd43d3f81505c1e6ccabfe2d7dd018d6c92291797f8bccd6bb40dce95afbc7818cd2c9e96653","settlement_time":"2025-12-13 19:48:45","pop_id":"8ec3a66f-f3cb-4ad0-925a-4961266ae9a6","payment_type":"qris","order_id":"INV/1765630095398955500/1","merchant_id":"G851976359","merchant_cross_reference_id":"591db568-bc35-4d53-a130-32ad39907805","issuer":"gopay","gross_amount":"13200.00","fraud_status":"accept","expiry_time":"2025-12-13 20:03:15","customer_details":{},"currency":"IDR","acquirer":"gopay"}
+
+==== 2025-12-13 19:50:29 ====
+HEADERS:
+User-Agent: [Veritrans]
+Content-Length: [586]
+Content-Type: [application/json]
+X-Forwarded-For: [147.139.213.108]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+BODY:
+{"transaction_type":"off-us","transaction_time":"2025-12-13 19:50:28","transaction_status":"pending","transaction_id":"58f85064-439b-487b-8bb9-3334f515ecfc","status_message":"midtrans payment notification","status_code":"201","signature_key":"e185490f5bb52bdf48e287f71bb0cf771d444016babf11920ade0240c8d2e6a337cb84ade3a4bce10ae94d96283caf106cead50ec2b6a8721e3bf30d9d8b767e","payment_type":"qris","order_id":"INV/1765630227929270300/1","merchant_id":"G851976359","gross_amount":"19800.00","fraud_status":"accept","expiry_time":"2025-12-13 20:05:28","customer_details":{},"currency":"IDR"}
+
+==== 2025-12-13 19:50:38 ====
+HEADERS:
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [586]
+Content-Type: [application/json]
+X-Forwarded-For: [147.139.173.83]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+BODY:
+{"transaction_type":"off-us","transaction_time":"2025-12-13 19:50:37","transaction_status":"pending","transaction_id":"f8faeab8-b80d-4d6a-8529-eb4dc50362f0","status_message":"midtrans payment notification","status_code":"201","signature_key":"493a1ddd657afb4af41b31ec60bc6baac71bc7ddb0aa77361f9182f2794bb94de304a7119f2d51e9c68c82b0cec1c965bb9240b7bdc9d02d7921a5ca31655228","payment_type":"qris","order_id":"INV/1765630237640936700/1","merchant_id":"G851976359","gross_amount":"13200.00","fraud_status":"accept","expiry_time":"2025-12-13 20:05:37","customer_details":{},"currency":"IDR"}
+
+==== 2025-12-13 19:51:00 ====
+HEADERS:
+X-Forwarded-For: [147.139.206.250]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [781]
+Content-Type: [application/json]
+BODY:
+{"transaction_type":"on-us","transaction_time":"2025-12-13 19:50:37","transaction_status":"settlement","transaction_id":"f8faeab8-b80d-4d6a-8529-eb4dc50362f0","status_message":"midtrans payment notification","status_code":"200","signature_key":"141a0c0eb06a86fdbfa4046ed132488e22b8bd921d28526d9d310c0c4581a03d6141c378b1f0b890cfe6772daaad0edc79079f69cb51a3f3685f746b79256c37","settlement_time":"2025-12-13 19:50:59","pop_id":"8ec3a66f-f3cb-4ad0-925a-4961266ae9a6","payment_type":"qris","order_id":"INV/1765630237640936700/1","merchant_id":"G851976359","merchant_cross_reference_id":"591db568-bc35-4d53-a130-32ad39907805","issuer":"gopay","gross_amount":"13200.00","fraud_status":"accept","expiry_time":"2025-12-13 20:05:37","customer_details":{},"currency":"IDR","acquirer":"gopay"}
+
+==== 2025-12-13 19:58:48 ====
+HEADERS:
+X-Forwarded-For: [147.139.209.91]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [586]
+Content-Type: [application/json]
+BODY:
+{"transaction_type":"off-us","transaction_time":"2025-12-13 19:58:46","transaction_status":"pending","transaction_id":"980f544d-301f-49dc-bde9-705c0edf8a0e","status_message":"midtrans payment notification","status_code":"201","signature_key":"c40c4b253d69f01d0d5c3799e4481dc9d12de0b2dc8dba0301c19dca58a5ba4f1eb52e71d7c857f37a5d59dd4226ffceb5ca9098e8a0e3ddb05c3b76b0902e7e","payment_type":"qris","order_id":"INV/1765630725434835500/1","merchant_id":"G851976359","gross_amount":"46200.00","fraud_status":"accept","expiry_time":"2025-12-13 20:13:46","customer_details":{},"currency":"IDR"}
+
+==== 2025-12-13 19:59:08 ====
+HEADERS:
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [781]
+Content-Type: [application/json]
+X-Forwarded-For: [147.139.173.83]
+BODY:
+{"transaction_type":"on-us","transaction_time":"2025-12-13 19:58:46","transaction_status":"settlement","transaction_id":"980f544d-301f-49dc-bde9-705c0edf8a0e","status_message":"midtrans payment notification","status_code":"200","signature_key":"6b1956642b364a2561746f037bfea49b61d7a3848c25e5e985093b64786bf231c53061e835e2f095242086787ac7cd48a5e0ab3532ea0c7db17ad2804ece70bd","settlement_time":"2025-12-13 19:59:07","pop_id":"8ec3a66f-f3cb-4ad0-925a-4961266ae9a6","payment_type":"qris","order_id":"INV/1765630725434835500/1","merchant_id":"G851976359","merchant_cross_reference_id":"591db568-bc35-4d53-a130-32ad39907805","issuer":"gopay","gross_amount":"46200.00","fraud_status":"accept","expiry_time":"2025-12-13 20:13:46","customer_details":{},"currency":"IDR","acquirer":"gopay"}
+
+==== 2025-12-13 20:04:54 ====
+HEADERS:
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [585]
+Content-Type: [application/json]
+X-Forwarded-For: [147.139.132.215]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+BODY:
+{"transaction_type":"off-us","transaction_time":"2025-12-13 20:04:54","transaction_status":"pending","transaction_id":"4b7ee4c6-529d-4981-8063-f8bf06e93238","status_message":"midtrans payment notification","status_code":"201","signature_key":"8b3bcc30ffceee6f4f780f6faaa9520d288a7b267148629856430a7c9738f936539acca0ec66ae6956e627a0f26d7e18f209197249b084283aebba79a98c4f35","payment_type":"qris","order_id":"INV/1765631093809657500/1","merchant_id":"G851976359","gross_amount":"6603.00","fraud_status":"accept","expiry_time":"2025-12-13 20:19:54","customer_details":{},"currency":"IDR"}
+
+==== 2025-12-13 20:05:17 ====
+HEADERS:
+Content-Length: [780]
+Content-Type: [application/json]
+X-Forwarded-For: [149.129.227.68]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+BODY:
+{"transaction_type":"on-us","transaction_time":"2025-12-13 20:04:54","transaction_status":"settlement","transaction_id":"4b7ee4c6-529d-4981-8063-f8bf06e93238","status_message":"midtrans payment notification","status_code":"200","signature_key":"d641527714f6231ee04042b42b94ff36a79fd2348d660c0b2f0bf4fbf098d42703c95d129ed284407646d2adb31e49fc40d39f0ce76969c10bf31be0b1f1d73f","settlement_time":"2025-12-13 20:05:17","pop_id":"8ec3a66f-f3cb-4ad0-925a-4961266ae9a6","payment_type":"qris","order_id":"INV/1765631093809657500/1","merchant_id":"G851976359","merchant_cross_reference_id":"591db568-bc35-4d53-a130-32ad39907805","issuer":"gopay","gross_amount":"6603.00","fraud_status":"accept","expiry_time":"2025-12-13 20:19:54","customer_details":{},"currency":"IDR","acquirer":"gopay"}
+
+==== 2025-12-13 20:06:30 ====
+HEADERS:
+Accept-Encoding: [gzip]
+User-Agent: [Veritrans]
+Content-Length: [585]
+Content-Type: [application/json]
+X-Forwarded-For: [149.129.227.68]
+X-Forwarded-Host: [ceola-conjoined-undiaphanously.ngrok-free.dev]
+X-Forwarded-Proto: [https]
+BODY:
+{"transaction_type":"off-us","transaction_time":"2025-12-13 19:50:28","transaction_status":"expire","transaction_id":"58f85064-439b-487b-8bb9-3334f515ecfc","status_message":"midtrans payment notification","status_code":"202","signature_key":"d0aa1772f6f6689fa0cb6e60f8fad63416388253e63f4206456ba44640f7ae42c9b42519cad1d59a379fb5a45c2ff2ac9aed51b2e2563ba7a58db47486dd1c61","payment_type":"qris","order_id":"INV/1765630227929270300/1","merchant_id":"G851976359","gross_amount":"19800.00","fraud_status":"accept","expiry_time":"2025-12-13 20:05:28","customer_details":{},"currency":"IDR"}
+
