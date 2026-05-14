@@ -12,7 +12,8 @@ func CORSMiddleware() gin.HandlerFunc {
 		AllowOrigins: []string{
 			"http://localhost:5173",
 			"https://kasir-pintar.github.io",
-			"https://kasirpintar-beta.vercel.app", // TODO: ganti dengan domain Vercel yang sebenarnya
+			"https://kasirpintar-beta.vercel.app",
+			"https://kasirpintar.vercel.app",
 		},
 
 		AllowMethods: []string{

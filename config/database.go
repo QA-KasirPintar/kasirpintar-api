@@ -5,43 +5,69 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"time"
 
 	"kasirpintar-api/models"
 
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 var DB *gorm.DB
 
 func ConnectDatabase() {
-	// Validasi env wajib
-	requiredEnvs := []string{
-		"DB_HOST",
-		"DB_PORT",
-		"DB_USER",
-		"DB_PASSWORD",
-		"DB_NAME",
-	}
+	// Prefer DATABASE_URL (Neon/Vercel convention)
+	dsn := os.Getenv("DATABASE_URL")
 
-	for _, env := range requiredEnvs {
-		if os.Getenv(env) == "" {
-			log.Fatalf("ENV %s belum diset", env)
+	if dsn == "" {
+		// Fallback ke individual env vars (support both PG* and DB_* naming)
+		host := os.Getenv("PGHOST")
+		if host == "" {
+			host = os.Getenv("DB_HOST")
 		}
+		port := os.Getenv("PGPORT")
+		if port == "" {
+			port = os.Getenv("DB_PORT")
+		}
+		if port == "" {
+			port = "5432"
+		}
+		user := os.Getenv("PGUSER")
+		if user == "" {
+			user = os.Getenv("DB_USER")
+		}
+		password := os.Getenv("PGPASSWORD")
+		if password == "" {
+			password = os.Getenv("DB_PASSWORD")
+		}
+		dbname := os.Getenv("PGDATABASE")
+		if dbname == "" {
+			dbname = os.Getenv("DB_NAME")
+		}
+
+		if host == "" || user == "" || dbname == "" {
+			log.Println("WARNING: Database env vars not fully set")
+			return
+		}
+
+		dsn = fmt.Sprintf(
+			"host=%s port=%s user=%s password=%s dbname=%s sslmode=require",
+			host, port, user, password, dbname,
+		)
 	}
 
-	dsn := fmt.Sprintf(
-		"%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
-		os.Getenv("DB_USER"),
-		os.Getenv("DB_PASSWORD"),
-		os.Getenv("DB_HOST"),
-		os.Getenv("DB_PORT"),
-		os.Getenv("DB_NAME"),
-	)
-
-	database, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	database, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Fatalf("Gagal konek database: %v", err)
+		log.Printf("Gagal konek database: %v", err)
+		return
+	}
+
+	// Connection pool settings for serverless
+	sqlDB, err := database.DB()
+	if err == nil {
+		sqlDB.SetMaxIdleConns(2)
+		sqlDB.SetMaxOpenConns(5)
+		sqlDB.SetConnMaxLifetime(5 * time.Minute)
 	}
 
 	// AutoMigrate hanya jika diizinkan
@@ -60,11 +86,12 @@ func ConnectDatabase() {
 			&models.Voucher{},
 		)
 		if err != nil {
-			log.Fatalf("Gagal AutoMigrate: %v", err)
+			log.Printf("Gagal AutoMigrate: %v", err)
+		} else {
+			log.Println("AutoMigrate selesai")
 		}
-		log.Println("AutoMigrate selesai")
 	}
 
 	DB = database
-	log.Println("Database terkoneksi dengan sukses")
+	log.Println("Database terkoneksi dengan sukses (Postgres/Neon)")
 }

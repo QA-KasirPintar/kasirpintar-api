@@ -1,8 +1,10 @@
-package main
+package handler
 
 import (
 	"fmt"
+	"net/http"
 	"os"
+	"sync"
 
 	"kasirpintar-api/config"
 	"kasirpintar-api/controllers"
@@ -13,27 +15,23 @@ import (
 	"github.com/midtrans/midtrans-go"
 )
 
-// main.go digunakan untuk LOCAL DEVELOPMENT saja.
-// Untuk deployment Vercel, gunakan api/index.go
+var (
+	app  *gin.Engine
+	once sync.Once
+)
 
-func main() {
-	// =========================
-	// ENV LOADING
-	// =========================
+func setup() {
+	// Load .env only for local development
 	if os.Getenv("VERCEL") == "" {
 		_ = godotenv.Load()
 		fmt.Println("Loaded .env (local mode)")
 	}
 
-	// =========================
-	// DATABASE INIT (Postgres/Neon)
-	// =========================
+	// Database
 	fmt.Println("Connecting to database...")
 	config.ConnectDatabase()
 
-	// =========================
-	// MIDTRANS INIT
-	// =========================
+	// Midtrans
 	serverKey := os.Getenv("MIDTRANS_SERVER_KEY")
 	if serverKey == "" {
 		fmt.Println("WARNING: MIDTRANS_SERVER_KEY not set")
@@ -42,20 +40,21 @@ func main() {
 		fmt.Println("Midtrans client initialized (sandbox)")
 	}
 
-	// =========================
-	// GIN SETUP
-	// =========================
-	r := gin.Default()
-	r.Use(config.CORSMiddleware())
+	// Gin Setup
+	gin.SetMode(gin.ReleaseMode)
+	app = gin.New()
+	app.Use(gin.Recovery())
+	app.Use(config.CORSMiddleware())
+
 	// Health check
-	r.GET("/", func(c *gin.Context) {
+	app.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"status":  "API Running",
 			"service": "KasirPintar API",
 		})
 	})
 
-	api := r.Group("/api")
+	api := app.Group("/api")
 	{
 		// Public routes
 		api.POST("/login", controllers.Login)
@@ -81,8 +80,6 @@ func main() {
 				cashierRoutes.POST("/transactions/preview", controllers.PreviewTransaction)
 				cashierRoutes.POST("/transactions", controllers.CreateTransaction)
 				cashierRoutes.GET("/transactions/status/*invoice", controllers.GetTransactionStatusByInvoice)
-
-				// Customer routes
 				cashierRoutes.GET("/customers", controllers.GetCustomers)
 				cashierRoutes.POST("/customers", controllers.CreateCustomer)
 			}
@@ -153,17 +150,10 @@ func main() {
 			}
 		}
 	}
+}
 
-	// =========================
-	// START SERVER
-	// =========================
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
-
-	fmt.Println("Server running on port:", port)
-	if err := r.Run(":" + port); err != nil {
-		fmt.Println("Server failed:", err)
-	}
+// Handler is the Vercel serverless function entry point
+func Handler(w http.ResponseWriter, r *http.Request) {
+	once.Do(setup)
+	app.ServeHTTP(w, r)
 }

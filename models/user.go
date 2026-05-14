@@ -7,7 +7,7 @@ type User struct {
 	Name     string
 	Email    string `gorm:"size:255;not null;unique"`
 	Password string `gorm:"size:255;not null" json:"-"`
-	Role     string `gorm:"type:enum('admin', 'owner', 'branch_manager', 'cashier');default:'cashier'"`
+	Role     string `gorm:"type:varchar(20);default:'cashier'"`
 
 	// --- PERUBAHAN DI SINI ---
 	// 1. Ubah menjadi pointer *uint agar bisa bernilai NULL

@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
-	"os"
 	"strings"
 	"time"
 
@@ -35,18 +34,8 @@ func HandlePaymentNotification(c *gin.Context) {
 	}
 	fmt.Println("[DEBUG] raw payload:", string(rawBody))
 
-	// append to webhook.log for persistence
-	f, ferr := os.OpenFile("webhook.log", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
-	if ferr == nil {
-		fmt.Fprintf(f, "==== %s ====\nHEADERS:\n", now)
-		for k, v := range c.Request.Header {
-			fmt.Fprintf(f, "%s: %v\n", k, v)
-		}
-		fmt.Fprintf(f, "BODY:\n%s\n\n", string(rawBody))
-		f.Close()
-	} else {
-		fmt.Println("[WARN] cannot write webhook.log:", ferr)
-	}
+	// Log payload to stdout (Vercel Logs)
+	fmt.Printf("==== WEBHOOK %s ====\nBODY:\n%s\n\n", now, string(rawBody))
 
 	// parse
 	var payload map[string]interface{}

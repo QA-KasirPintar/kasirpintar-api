@@ -7,6 +7,7 @@ import (
 	"kasirpintar-api/config"
 	"kasirpintar-api/models"
 	"net/http"
+	"os"
 	"strconv"
 	"time"
 
@@ -204,8 +205,16 @@ func GetSalesForecast(c *gin.Context) {
 
 	jsonData, _ := json.Marshal(mlRequestBody)
 
-	// mlServiceURL := "http://127.0.0.1:5000/predict"
-	mlServiceURL := "https://ceola-conjoined-undiaphanously.ngrok-free.dev/predict"
+	// URL ML Service - otomatis pakai Vercel URL jika di-deploy
+	mlServiceURL := os.Getenv("ML_SERVICE_URL")
+	if mlServiceURL == "" {
+		vercelURL := os.Getenv("VERCEL_URL")
+		if vercelURL != "" {
+			mlServiceURL = "https://" + vercelURL + "/api/ml/predict"
+		} else {
+			mlServiceURL = "http://127.0.0.1:5000/predict"
+		}
+	}
 	resp, err := http.Post(mlServiceURL, "application/json", bytes.NewBuffer(jsonData))
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
@@ -343,7 +352,7 @@ func GetBusyHours(c *gin.Context) {
 	var results []BusyHourResult
 
 	err := config.DB.Table("transactions").
-		Select("DAYOFWEEK(created_at) as day_of_week, HOUR(created_at) as hour, COUNT(*) as count").
+		Select("EXTRACT(DOW FROM created_at)::int as day_of_week, EXTRACT(HOUR FROM created_at)::int as hour, COUNT(*) as count").
 		Where("outlet_id = ?", outletID). // Gunakan outletID dinamis
 		Group("day_of_week, hour").
 		Scan(&results).Error

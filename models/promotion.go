@@ -32,11 +32,11 @@ type Promotion struct {
 	DeletedAt   gorm.DeletedAt  `gorm:"index" json:"DeletedAt"`
 	Name        string          `gorm:"size:255;not null" json:"Name"`
 	Description string          `gorm:"type:text" json:"Description"`
-	Type        PromotionType   `gorm:"type:enum('PERCENTAGE', 'FIXED_AMOUNT', 'BOGO');not null" json:"Type"`
+	Type        PromotionType   `gorm:"type:varchar(20);not null" json:"Type"`
 	Value       float64         `gorm:"type:decimal(10,2);not null" json:"Value"`
 	StartDate   time.Time       `gorm:"not null" json:"start_date"`
 	EndDate     time.Time       `gorm:"not null" json:"end_date"`
-	Status      PromotionStatus `gorm:"type:enum('ACTIVE', 'INACTIVE', 'EXPIRED');not null;default:'INACTIVE'" json:"Status"`
+	Status      PromotionStatus `gorm:"type:varchar(20);not null;default:'INACTIVE'" json:"Status"`
 	OutletID    uint            `gorm:"not null" json:"outlet_id"`
 	Outlet      Outlet          `gorm:"foreignKey:OutletID" json:"Outlet"`
 

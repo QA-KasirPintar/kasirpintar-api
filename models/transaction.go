@@ -9,7 +9,7 @@ type Transaction struct {
 	Discount      float64 `gorm:"default:0"`
 	TotalAmount   float64 `gorm:"not null"`
 
-	Status string `gorm:"type:enum('PENDING','PAID','CANCELLED');default:'PENDING'"`
+	Status string `gorm:"type:varchar(20);default:'PENDING'"`
 
 	PaymentMethod string  `gorm:"size:50;default:'Tunai'"`
 	CashTendered  float64 `gorm:"default:0"`
