@@ -57,6 +57,9 @@ func main() {
 
 	api := r.Group("/api")
 	{
+		// Setup route (hanya bisa dipakai sekali - untuk buat admin pertama)
+		api.POST("/setup", controllers.CreateFirstAdmin)
+
 		// Public routes
 		api.POST("/login", controllers.Login)
 		api.POST("/forgot-password", controllers.ForgotPassword)
