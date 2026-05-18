@@ -1,10 +1,10 @@
 {
   "functions": {
     "api/index.go": {
-      "runtime": "vercel-go@3.1.3"
+      "runtime": "@vercel/go"
     },
     "api/ml/index.py": {
-      "runtime": "vercel-python@4.4.4"
+      "runtime": "@vercel/python"
     }
   },
   "rewrites": [
