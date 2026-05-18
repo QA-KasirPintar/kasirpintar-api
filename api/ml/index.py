@@ -1,7 +1,13 @@
 # LOKASI: api/ml/index.py - Vercel Python Serverless Function
+import sys
+import os
+
+# Pastikan direktori api/ml ada di path agar import relatif berfungsi di Vercel
+sys.path.insert(0, os.path.dirname(__file__))
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from api.ml._model import train_and_predict
+from _model import train_and_predict
 
 app = Flask(__name__)
 CORS(app)
@@ -26,3 +32,6 @@ def predict():
         return jsonify(prediction)
     except Exception as e:
         return jsonify({"error": f"Terjadi kesalahan: {e}"}), 500
+
+# Vercel Python runtime menggunakan `app` sebagai WSGI handler
+# Tidak perlu handler() terpisah - Vercel otomatis detect Flask `app`
