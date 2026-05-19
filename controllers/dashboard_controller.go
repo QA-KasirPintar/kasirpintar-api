@@ -196,7 +196,7 @@ func GetSalesForecast(c *gin.Context) {
 		}
 	}
 
-	// Kirim ke service ML
+	// Kirim ke service ML (kasirpintar-ml di-deploy terpisah)
 	mlRequestBody := map[string]interface{}{
 		"product_name": requestBody.ProductName,
 		"outlet_id":    outletID, // 'outletID' sekarang PASTI valid
@@ -205,17 +205,31 @@ func GetSalesForecast(c *gin.Context) {
 
 	jsonData, _ := json.Marshal(mlRequestBody)
 
-	// URL ML Service - otomatis pakai Vercel URL jika di-deploy
+	// URL ML Service — wajib set ML_SERVICE_URL di production
+	// Default ke localhost:5000 hanya untuk local development
 	mlServiceURL := os.Getenv("ML_SERVICE_URL")
 	if mlServiceURL == "" {
-		vercelURL := os.Getenv("VERCEL_URL")
-		if vercelURL != "" {
-			mlServiceURL = "https://" + vercelURL + "/api/ml/predict"
-		} else {
-			mlServiceURL = "http://127.0.0.1:5000/predict"
-		}
+		mlServiceURL = "http://127.0.0.1:5000/predict"
 	}
-	resp, err := http.Post(mlServiceURL, "application/json", bytes.NewBuffer(jsonData))
+
+	// Buat HTTP request dengan API key untuk autentikasi antar service
+	req, err := http.NewRequest("POST", mlServiceURL, bytes.NewBuffer(jsonData))
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error":   "Gagal membuat request ke layanan prediksi",
+			"details": err.Error(),
+		})
+		return
+	}
+	req.Header.Set("Content-Type", "application/json")
+
+	mlAPIKey := os.Getenv("ML_API_KEY")
+	if mlAPIKey != "" {
+		req.Header.Set("X-API-Key", mlAPIKey)
+	}
+
+	client := &http.Client{Timeout: 120 * time.Second}
+	resp, err := client.Do(req)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error":   "Gagal menghubungi layanan prediksi",

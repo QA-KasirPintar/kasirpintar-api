@@ -2,13 +2,9 @@
   "functions": {
     "api/index.go": {
       "runtime": "@vercel/go"
-    },
-    "api/ml/index.py": {
-      "runtime": "@vercel/python"
     }
   },
   "rewrites": [
-    { "source": "/api/ml/(.*)", "destination": "/api/ml/index" },
     { "source": "/api/(.*)", "destination": "/api/index" },
     { "source": "/(.*)", "destination": "/api/index" }
   ]

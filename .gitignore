@@ -1,6 +1,4 @@
 .env
 .env.*
 webhook.log
-__pycache__/
-*.pyc
 .vercel
