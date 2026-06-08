@@ -1,6 +1,7 @@
 package config
 
 import (
+	"strings"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -9,11 +10,22 @@ import (
 
 func CORSMiddleware() gin.HandlerFunc {
 	return cors.New(cors.Config{
-		AllowOrigins: []string{
-			"http://localhost:5173",
-			"https://kasir-pintar.github.io",
-			"https://kasirpintar-beta.vercel.app",
-			"https://kasirpintar.vercel.app",
+		// AllowOriginFunc digunakan untuk mengizinkan preview deployment Vercel
+		// yang domain-nya berubah setiap deploy (contoh: kasirpintar-xxx.vercel.app)
+		AllowOriginFunc: func(origin string) bool {
+			// Izinkan localhost untuk development
+			if origin == "http://localhost:5173" {
+				return true
+			}
+			// Izinkan GitHub Pages
+			if origin == "https://kasir-pintar.github.io" {
+				return true
+			}
+			// Izinkan semua *.vercel.app (production & preview deployments)
+			if strings.HasSuffix(origin, ".vercel.app") {
+				return true
+			}
+			return false
 		},
 
 		AllowMethods: []string{
