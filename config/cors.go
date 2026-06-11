@@ -21,6 +21,9 @@ func CORSMiddleware() gin.HandlerFunc {
 			if origin == "https://kasir-pintar.github.io" {
 				return true
 			}
+			if origin == "https://kasirpintar-beta.vercel.app/" {
+				return true
+			}
 			// Izinkan semua *.vercel.app (production & preview deployments)
 			if strings.HasSuffix(origin, ".vercel.app") {
 				return true
